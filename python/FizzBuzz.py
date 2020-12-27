@@ -1,10 +1,15 @@
 # -*- coding: utf-8 -*
 
+import configparser
+
+_config = configparser.ConfigParser()
+_config.read('FizzBuzz.ini')
+config = _config['DEFAULT']
 
 flag_debug = False
 
 
-def index(fizz="Fizz", buzz="Buzz", fizzbuzz="FizzBuzz"):
+def index(fizz=config['Fizz'], buzz=config['Buzz'], fizzbuzz=config['FizzBuzz']):
 
     out = []
     numbers = [1,2,3,4,5,10,15,20]
@@ -16,7 +21,7 @@ def index(fizz="Fizz", buzz="Buzz", fizzbuzz="FizzBuzz"):
         if flag_debug:
             print(str(a) + "..." + str(a % 3) + " ... " + str((a % 3) == 0))
 
-        if (((a % 3) == 0) & ((a % 5) == 0)):
+        if (((a % 3) == 0) and ((a % 5) == 0)):
             out.append(fizzbuzz)
 
         elif ((a % 3) == 0):
@@ -34,6 +39,10 @@ def index(fizz="Fizz", buzz="Buzz", fizzbuzz="FizzBuzz"):
 
 
 
+
+
+
+print(config['Fizz'])
 
 
 print("-------")
