@@ -27,7 +27,6 @@ def index():
     return out
 
 
-
 print("-------")
 out = index()
 
