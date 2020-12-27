@@ -4,10 +4,12 @@
 flag_debug = False
 
 
-def index():
+def index(fizz="Fizz", buzz="Buzz", fizzbuzz="FizzBuzz"):
 
     out = []
     numbers = [1,2,3,4,5,10,15,20]
+
+    oo = {"original":numbers, "out":out}
 
     for a in numbers:
 
@@ -15,22 +17,38 @@ def index():
             print(str(a) + "..." + str(a % 3) + " ... " + str((a % 3) == 0))
 
         if (((a % 3) == 0) & ((a % 5) == 0)):
-            out.append("FizzBuzz")
+            out.append(fizzbuzz)
+
         elif ((a % 3) == 0):
-            out.append("Fizz")
+            out.append(fizz)
+
         elif ((a % 5) == 0):
-            out.append("Buzz")
+            out.append(buzz)
+
         else:
             out.append(a)      
 
+#    oo["out"] = out
 
-    return out
+    return oo
+
+
+
 
 
 print("-------")
-out = index()
+#out = index("f", "b", "fb")
+result = index()
 
-for o in out:
+print("Original:")
+print(result["original"])
+
+
+print("-------")
+print("Result:")
+for o in result["out"]:
     print(">> " + str(o))
 
 print("-------")
+
+
