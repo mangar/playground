@@ -12,11 +12,13 @@ from flask import Flask
 from flask import request
 
 import base
-from controllers.index_controller import IndexController
 from base.log import Log
 
-app = Flask(__name__)
+from controllers.index_controller import IndexController
+from controllers.help_controller import HelpController
 
+
+app = Flask(__name__)
 
 
 flag_debug = base.config['flag_debug']
@@ -24,6 +26,10 @@ flag_debug = base.config['flag_debug']
 
 Log.debug('Flag Debug:' + flag_debug, app)
 
+
+
+
+    
 
 
 @app.route('/', methods = ['GET'])
@@ -39,3 +45,7 @@ def hello_world():
     return 'Hello, World!'
 
 
+
+@app.route('/help', methods = ['GET'])
+def help():
+    return HelpController(app).index()

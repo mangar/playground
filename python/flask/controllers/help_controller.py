@@ -3,10 +3,7 @@
 from flask import jsonify
 
 
-
-
-
-class IndexController:
+class HelpController:
 
     def __init__(self, app):
         self.app = app
@@ -14,7 +11,5 @@ class IndexController:
     #
     #
     def index(self):
-        return jsonify(message='Content from IndexController.......')
-
-
+        return jsonify(methods= ['/', '/help', '/hello'])
 

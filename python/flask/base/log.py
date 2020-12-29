@@ -11,7 +11,6 @@ class Log:
         app.logger.info(_message)
         return _message
 
-
     @staticmethod
     def debug(message, app):
         _message = ' >> ' + message

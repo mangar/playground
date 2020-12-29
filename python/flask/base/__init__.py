@@ -1,3 +1,7 @@
+
+#
+# Logging
+#
 from logging.config import dictConfig
 
 dictConfig({
@@ -18,8 +22,16 @@ dictConfig({
 
 
 
+#
+# Config
+#
 import configparser
 
 _config = configparser.ConfigParser()
 _config.read('config.ini')
 config = _config['DEFAULT']
+
+
+
+
+
